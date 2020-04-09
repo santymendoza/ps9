@@ -6,13 +6,13 @@
  *)
 
 module G = Graphics ;;
-(* open Utilities ;; *)
-
 open Config ;;
 open Registry ;;
+module Ctr = Counter ;;
 module Viz = Visualization ;;
 module Stat = Statistics ;; 
-  
+(* also uses Utilities *)
+
 (*....................................................................
                                 People
  *)

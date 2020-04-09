@@ -6,10 +6,46 @@
  *)
 
 module G = Graphics ;;
+                 
+(*....................................................................
+                     Parameters of the simulation
+ *)
 
 (* size of the world, in arbitrary units of a "block" *)
 let cX_DIMENSION = 200 ;;
 let cY_DIMENSION = 200 ;;
+
+(* number of time steps that the simulation runs *)
+let cTIME_STEPS = 1000 ;;
+let cPAUSE_EVERY = max_int ;;
+
+(* number of simulated persons *)
+let cPOPULATION = 1000 ;;
+(* proportion of initial population that is infected *)
+let cINITPROPORTION = 1.0 /. 50.0 ;;
+
+(* the number of blocks in any direction that a person can move at
+   each time step, depending on infection status *)
+let cSTEP_SIZE_SUSCEPTIBLE = 1 ;;
+let cSTEP_SIZE_INFECTED = cSTEP_SIZE_SUSCEPTIBLE ;;
+let cSTEP_SIZE_RECOVERED = cSTEP_SIZE_SUSCEPTIBLE ;;
+let cSTEP_SIZE_DECEASED = 0 ;; (* should be 0, unless...*zombies*! *)
+
+(* the incremental probability that being within the neighbor radius
+   of a person will cause infection *)
+let cINFECTIOUSNESS_SUSCEPTIBLE = 0.0 ;;
+let cINFECTIOUSNESS_INFECTED = 0.2 ;;
+let cINFECTIOUSNESS_RECOVERED = 0.0 ;;
+let cINFECTIOUSNESS_DECEASED = 0.0 ;; (* again, ...*zombies*! *)
+      
+(* distance in blocks that an infected person can infect others *)
+let cNEIGHBOR_RADIUS = 4 ;;
+(* proportion of infected that die on any given time step *)
+let cMORTALITY = 2. /. 100. ;;
+(* mean and stdev of time steps for infected to recover (or die) *)
+let cRECOVERY_PERIOD = 50., 20. ;;
+(* mean and stdev of time steps during which recovered are immune *)
+let cIMMUNITY_PERIOD = 100., 40. ;;
 
 (*....................................................................
                    Parameters of the visualization
@@ -41,39 +77,3 @@ let cCHART_HEIGHT = cY_DIMENSION * cPIXELS_PER_BLOCK - 2 * cCHART_Y
 
 let cCOUNT_X = cX_DIMENSION * cPIXELS_PER_BLOCK + 50
 let cCOUNT_Y = 50
-                 
-(*....................................................................
-                     Parameters of the simulation
- *)
-
-(* number of time steps that the simulation runs *)
-let cTIME_STEPS = 1000 ;;
-let cPAUSE_EVERY = max_int ;;
-
-(* number of simulated persons *)
-let cPOPULATION = 1000 ;;
-(* proportion of initial population that is infected *)
-let cINITPROPORTION = 1.0 /. 50.0 ;;
-
-(* the number of blocks in any direction that a person can move at
-   each time step, depending on infection status *)
-let cSTEP_SIZE_SUSCEPTIBLE = 2 ;;
-let cSTEP_SIZE_INFECTED = cSTEP_SIZE_SUSCEPTIBLE ;;
-let cSTEP_SIZE_RECOVERED = cSTEP_SIZE_SUSCEPTIBLE ;;
-let cSTEP_SIZE_DECEASED = 0 ;; (* should be 0, unless...*zombies*! *)
-
-(* the incremental probability that being within the neighbor radius
-   of a person will cause infection *)
-let cINFECTIOUSNESS_SUSCEPTIBLE = 0.0 ;;
-let cINFECTIOUSNESS_INFECTED = 0.3 ;;
-let cINFECTIOUSNESS_RECOVERED = 0.0 ;;
-let cINFECTIOUSNESS_DECEASED = 0.0 ;; (* again, ...*zombies*! *)
-      
-(* distance in blocks that an infected person can infect others *)
-let cNEIGHBOR_RADIUS = 5 ;;
-(* proportion of infected that die on any given time step *)
-let cMORTALITY = 2. /. 100. ;;
-(* mean and stdev of time steps for infected to recover (or die) *)
-let cRECOVERY_PERIOD = 50., 20. ;;
-(* mean and stdev of time steps during which recovered are immune *)
-let cIMMUNITY_PERIOD = 100., 40. ;;

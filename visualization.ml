@@ -6,9 +6,9 @@
  *)
 
 open Config ;;
-(* open Utilities ;; *)
 module Stat = Statistics ;;
 module G = Graphics ;;
+(* also uses Utilities *)
   
 (*....................................................................
   Timing functions 

@@ -17,9 +17,9 @@ for more efficient access to the neighboring objects. *)
 
 open Array ;;
 open Config ;;
-(* open Utilities ;; *)
 module G = Graphics ;;
 module Viz = Visualization ;;
+(* also uses Utilities *)
   
 (*....................................................................
   The objects in the world

@@ -7,6 +7,8 @@
 
 class type counter_type =
   object
+    (* set n -- Sets the running count to `n`. *)
+    method set : int -> unit
     (* reset -- Resets the running count to zero. *)
     method reset : unit
     (* bump -- Increments the count. *)
