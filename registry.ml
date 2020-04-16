@@ -30,10 +30,12 @@ class type thing_type =
     method id : string
     method pos : int * int
     method infectiousness : float
+    method deadliness : float
     method step_size : int
 
     method set_pos : int -> int -> unit
     method set_infectiousness : float -> unit
+    method set_deadliness : float -> unit
     method set_step_size : int -> unit
 
     method update : unit

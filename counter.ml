@@ -24,7 +24,30 @@ Place your implementation of the `counter` class of class type
 `counter_type` here.
 ....................................................................*)
 
+
+class counter : counter_type =
+  object (this)  
+
+  val mutable counter = 0
+
+  method set (n: int) : unit = 
+    counter <- n
+
+  method reset : unit =
+    counter <- 0
+
+  method bump : unit = 
+    counter <- counter + 1
+
+  method debump : unit = 
+    counter <- counter - 1
+  
+  method count : int =
+    counter
+end;;
+
    
+
 (*======================================================================
 Reflection on the problem set
 

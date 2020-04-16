@@ -27,7 +27,7 @@ let run () =
     if Random.float 1.0 < cINITPROPORTION then
       R.register (new P.infected x y :> T.thing_type)
     else
-      R.register (new P.susceptible x y :> T.thing_type)
+        R.register (new P.susceptible x y :> T.thing_type)
   done;
 
   (* repeatedly update all the members of the population *)
@@ -48,7 +48,8 @@ let run () =
     counts := [ Stat.deceased#count;
                 Stat.infected#count;
                 Stat.susceptible#count;
-                Stat.recovered#count ]
+                Stat.recovered#count;
+                Stat.zombies#count ]
               :: !counts;
 
     (* update the display; note that the order of colors matches the
@@ -58,7 +59,8 @@ let run () =
                [ cCOLOR_DECEASED;
                  cCOLOR_INFECTED;
                  cCOLOR_SUSCEPTIBLE;
-                 cCOLOR_RECOVERED ];
+                 cCOLOR_RECOVERED;
+                 cCOLOR_ZOMBIE; ];
 
     (* check to see if a key was pressed to stop the simulation *)
     if Viz.any_key () then leave_early := true

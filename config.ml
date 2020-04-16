@@ -24,19 +24,28 @@ let cPOPULATION = 1000 ;;
 (* proportion of initial population that is infected *)
 let cINITPROPORTION = 1.0 /. 50.0 ;;
 
+
 (* the number of blocks in any direction that a person can move at
    each time step, depending on infection status *)
 let cSTEP_SIZE_SUSCEPTIBLE = 1 ;;
 let cSTEP_SIZE_INFECTED = cSTEP_SIZE_SUSCEPTIBLE ;;
 let cSTEP_SIZE_RECOVERED = cSTEP_SIZE_SUSCEPTIBLE ;;
+let cSTEP_SIZE_ZOMBIES = 1;;
 let cSTEP_SIZE_DECEASED = 0 ;; (* should be 0, unless...*zombies*! *)
 
 (* the incremental probability that being within the neighbor radius
    of a person will cause infection *)
 let cINFECTIOUSNESS_SUSCEPTIBLE = 0.0 ;;
+let cINFECTIOUSNESS_ZOMBIES = 0.0
 let cINFECTIOUSNESS_INFECTED = 0.2 ;;
 let cINFECTIOUSNESS_RECOVERED = 0.0 ;;
 let cINFECTIOUSNESS_DECEASED = 0.0 ;; (* again, ...*zombies*! *)
+
+let cDEADLINESS_SUSCEPTIBLE = 0.0 ;;
+let cDEADLINESS_ZOMBIES = 0.01
+let cDEADLINESS_INFECTED = 0.0 ;;
+let cDEADLINESS_RECOVERED = 0.0 ;;
+let cDEADLINESS_DECEASED = 0.0 ;; 
       
 (* distance in blocks that an infected person can infect others *)
 let cNEIGHBOR_RADIUS = 4 ;;
@@ -46,6 +55,9 @@ let cMORTALITY = 2. /. 100. ;;
 let cRECOVERY_PERIOD = 50., 20. ;;
 (* mean and stdev of time steps during which recovered are immune *)
 let cIMMUNITY_PERIOD = 100., 40. ;;
+
+let cZOMBIENESS = 2. /. 100. ;;
+
 
 (*....................................................................
                    Parameters of the visualization
@@ -68,6 +80,9 @@ let cCOLOR_SUSCEPTIBLE = 0x5888c4 ;;
 let cCOLOR_INFECTED = 0xc4586f ;;
 let cCOLOR_RECOVERED = 0x686061 ;;
 let cCOLOR_DECEASED = 0xc1bab8 ;;
+let cCOLOR_ZOMBIE = 0x98f542 ;;
+let cCOLOR_ZOMBIE2 = 0x000000 ;;
+
 
 (* chart placement in pixels *)
 let cCHART_X = 50
