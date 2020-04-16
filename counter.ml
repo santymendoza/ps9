@@ -62,7 +62,7 @@ complete.
 ......................................................................*)
 
 let minutes_spent_on_pset () : int =
-  failwith "time estimate not provided" ;;
+  240 ;;
 
 (*......................................................................
 It's worth reflecting on the work you did on this problem set, where
@@ -73,4 +73,4 @@ string below.
 ......................................................................*)
 
 let reflection () : string =
-  "...your reflections here..." ;;
+  "My favorite pset by far." ;;
